@@ -13,6 +13,13 @@ Docker needs to be installed first. From any directory launch:
 
     docker run mongo --name mongo -p 27017:27017
 
+## Back-end
+
+From the weatherApp/back directory, install the dependencies and start the API.
+
+    npm i
+    npm start
+
 ## Front-end
 
 From the weatherApp/front directory, install the dependencies and start the app.
