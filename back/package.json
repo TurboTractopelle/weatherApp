@@ -1,0 +1,23 @@
+{
+	"name": "back",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node src/app.js",
+		"test": "jest"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"chalk": "^2.4.2",
+		"eslint": "^6.2.2",
+		"jest": "^24.9.0",
+		"nodemon": "^1.19.1"
+	},
+	"dependencies": {
+		"mongoose": "^5.6.11",
+		"restify": "^8.4.0"
+	}
+}
