@@ -1,5 +1,5 @@
 const restify = require("restify");
-const weatherRoutes = require("./controller/weatherRoutes");
+const villeRoutes = require("./controller/villeRoutes");
 
 /**
  * @param  {String} name="weather"
@@ -15,7 +15,7 @@ function setUpServer(name = "weather") {
 	server.use(restify.plugins.queryParser({ mapParams: false }));
 	server.use(restify.plugins.jsonBodyParser());
 
-	weatherRoutes(server);
+	villeRoutes(server);
 
 	return server;
 }
