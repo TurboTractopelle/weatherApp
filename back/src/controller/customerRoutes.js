@@ -1,10 +1,11 @@
-//const Customer = require("../db/Customer");
+const Customer = require("../db/Customer");
 
 function setCustomerRoutes(server) {
   server.get("/customers", getCustomers);
 
-  function getCustomers(req, res, next) {
-    res.send("customers");
+  async function getCustomers(req, res, next) {
+    const data = await Customer.find({});
+    res.send(data);
     next();
   }
 }
