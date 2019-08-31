@@ -1,4 +1,4 @@
-const Customer = require("../db/Customer");
+//const Customer = require("../db/Customer");
 
 function setCustomerRoutes(server) {
   server.get("/customers", getCustomers);
