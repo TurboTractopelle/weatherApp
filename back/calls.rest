@@ -3,6 +3,9 @@
 ### get /test, receive "test"
 GET {{host}}/test
 
+### get customers
+GET {{host}}/customers
+
 ### get villes
 GET {{host}}/villes
 
