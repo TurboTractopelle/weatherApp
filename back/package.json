@@ -23,7 +23,8 @@
   },
   "dependencies": {
     "mongoose": "^5.6.11",
-    "restify": "^8.4.0"
+    "restify": "^8.4.0",
+    "restify-errors": "^8.0.1"
   },
   "jest": {
     "collectCoverageFrom": [

@@ -18,6 +18,12 @@ describe("customerRoutes", () => {
       .then(res => expect(res.body).toBe("test"));
   });
 
+  it("return error on error", () => {
+    return request(server)
+      .get("/customers/coffee")
+      .expect(418);
+  });
+
   it("displays the customer list", async () => {
     await Customer.create({ name: "a", email: "a@a.fr" });
     await Customer.create({ name: "b", email: "b@b.fr" });
