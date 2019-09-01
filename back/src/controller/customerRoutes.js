@@ -6,6 +6,7 @@ function setCustomerRoutes(server) {
   server.get("/customers/coffee", getCoffee);
   server.get("/customers/:id", getCustomerById);
   server.put("/customers/:id", updateCustomerById);
+  server.del("/customers/:id", deleteCustomerById);
   server.post("/customers", postCustomers);
 
   async function getCustomers(req, res, next) {
@@ -22,6 +23,18 @@ function setCustomerRoutes(server) {
       next();
     } catch (error) {
       res.send(new errors.ResourceNotFoundError(`No customer with id: ${id}`));
+    }
+  }
+
+  async function deleteCustomerById(req, res, next) {
+    const { id } = req.params;
+    try {
+      await Customer.findByIdAndDelete(id);
+      res.send(204);
+      next();
+    } catch (error) {
+      res.send(new errors.ResourceNotFoundError(`No customer with id: ${id}`));
+      next();
     }
   }
 
