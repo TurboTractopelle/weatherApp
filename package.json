@@ -9,7 +9,7 @@
     "mongoose-timestamp": "^0.6.0"
   },
   "devDependencies": {
-    "supertest": "^4.0.2"
+    "cross-env": "^5.2.1"
   },
   "scripts": {
     "test": "jest"

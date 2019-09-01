@@ -7,8 +7,15 @@ describe("customerRoutes", () => {
   beforeAll(async () => {
     await Customer.deleteMany({});
   });
-  afterAll(() => {
-    connection.close();
+  afterAll(async () => {
+    await connection.close();
+  });
+
+  it("returns the test path", () => {
+    return request(server)
+      .get("/test")
+      .expect(200)
+      .then(res => expect(res.body).toBe("test"));
   });
 
   it("displays the customer list", async () => {

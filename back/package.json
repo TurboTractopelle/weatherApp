@@ -1,25 +1,41 @@
 {
-	"name": "back",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"start": "nodemon src/app.js",
-		"test": "jest"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@types/jest": "^24.0.18",
-		"chalk": "^2.4.2",
-		"eslint": "^6.2.2",
-		"jest": "^24.9.0",
-		"nodemon": "^1.19.1",
-		"supertest": "^4.0.2"
-	},
-	"dependencies": {
-		"mongoose": "^5.6.11",
-		"restify": "^8.4.0"
-	}
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "npm test -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "chalk": "^2.4.2",
+    "cross-env": "^5.2.1",
+    "eslint": "^6.2.2",
+    "jest": "^24.9.0",
+    "mongodb-memory-server": "^5.2.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "mongoose": "^5.6.11",
+    "restify": "^8.4.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageReporters": [
+      "html",
+      "lcov",
+      "text"
+    ],
+    "notify": true,
+    "testEnvironment": "./jest/mongo-memory-environment",
+    "transform": {}
+  }
 }
