@@ -22,12 +22,13 @@ describe("customerRoutes", () => {
     await Customer.create({ name: "a", email: "a@a.fr" });
     await Customer.create({ name: "b", email: "b@b.fr" });
     await Customer.create({ name: "c", email: "c@c.fr" });
+    await Customer.create({ name: "d", email: "d@d.fr" });
 
     return request(server)
       .get("/customers")
       .expect(200)
       .then(res => {
-        expect(res.body.length).toBe(3);
+        expect(res.body.length).toBe(4);
         expect(res.body[0].name).toBe("a");
         expect(res.body[1].name).toBe("b");
       });

@@ -1,14 +1,11 @@
 const mongoose = require("mongoose");
 const chalk = require("chalk");
 
-/*const url =
+const url =
   process.env.MONGODB_URI ||
   // @ts-ignore
   global.MONGODB_URI ||
-  "mongodb://192.168.99.100:27017/weather";*/
-
-console.log("GLOBAL", global.MONGODB_URI);
-const url = global.MONGODB_URI;
+  "mongodb://192.168.99.100:27017/weather";
 
 const options = {
   connectTimeoutMS: 5000,
