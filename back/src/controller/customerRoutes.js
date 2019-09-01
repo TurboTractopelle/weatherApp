@@ -5,6 +5,7 @@ function setCustomerRoutes(server) {
   server.get("/customers", getCustomers);
   server.get("/customers/coffee", getCoffee);
   server.get("/customers/:id", getCustomerById);
+  server.put("/customers/:id", updateCustomerById);
   server.post("/customers", postCustomers);
 
   async function getCustomers(req, res, next) {
@@ -18,6 +19,24 @@ function setCustomerRoutes(server) {
     try {
       const data = await Customer.findById(id);
       res.send(data);
+      next();
+    } catch (error) {
+      res.send(new errors.ResourceNotFoundError(`No customer with id: ${id}`));
+    }
+  }
+
+  async function updateCustomerById(req, res, next) {
+    const { id } = req.params;
+
+    // check application type to be json
+    if (!req.is("application/json")) {
+      res.send(new errors.InvalidContentError("Waiting for JSON"));
+      return next();
+    }
+
+    try {
+      const customer = await Customer.findByIdAndUpdate(id, req.body);
+      res.send(201, customer);
       next();
     } catch (error) {
       res.send(new errors.ResourceNotFoundError(`No customer with id: ${id}`));

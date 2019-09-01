@@ -13,7 +13,7 @@ const options = {
   useCreateIndex: true,
   useNewUrlParser: true
 };
-
+mongoose.set("useFindAndModify", false); // node:10736 - deprecatingWarning
 mongoose.connect(url, options);
 const db = mongoose.connection;
 
