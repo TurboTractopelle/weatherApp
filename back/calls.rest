@@ -6,6 +6,21 @@ GET {{host}}/test
 ### get customers
 GET {{host}}/customers
 
+
+### get customers coffee
+GET {{host}}/customers/coffee
+
+
+### get customer by name
+GET {{host}}/customers/a
+
+
+### post customer with name a
+POST {{host}}/customers
+Content-Type: application/json
+
+{"name": "a", "email": "a@a.fr"}
+
 ### get villes
 GET {{host}}/villes
 
