@@ -12,7 +12,8 @@
     "cross-env": "^5.2.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
+    "test:watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",

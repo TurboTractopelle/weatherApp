@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/app.js",
-    "test": "cross-env NODE_ENV=test jest",
+    "dev": "nodemon src/app.js",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
     "test:watch": "npm test -- --watch"
   },
   "keywords": [],
@@ -37,5 +37,17 @@
     "notify": true,
     "testEnvironment": "./jest/mongo-memory-environment",
     "transform": {}
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "always",
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ],
+    "no-irregular-whitespace": 0
   }
 }
