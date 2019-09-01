@@ -19,7 +19,7 @@ async function auth(email, password) {
       throw new errors.UnauthorizedError("bad password");
     }
 
-    return true;
+    return user;
   } catch (error) {
     throw new Error(error);
   }

@@ -1,5 +1,7 @@
 const register = require("./user/register");
 const authenticate = require("./user/auth");
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = require("../../config").JWT_SECRET;
 
 function setupUserRoutes(server) {
   console.log("setting up user routes");
@@ -11,9 +13,13 @@ function setupUserRoutes(server) {
     const { email, password } = req.body;
 
     authenticate(email, password)
-      .then(response => {
-        console.log(res);
-        res.send(response);
+      .then(user => {
+        // create the token
+        const token = jwt.sign(user.toJSON(), JWT_SECRET, { expiresIn: "15m" });
+        // @ts-ignore
+        const { iat, exp } = jwt.decode(token);
+
+        res.send({ iat, exp, token });
         next();
       })
       .catch(err => {
