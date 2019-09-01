@@ -4,7 +4,7 @@ const errors = require("restify-errors");
 function setCustomerRoutes(server) {
   server.get("/customers", getCustomers);
   server.get("/customers/coffee", getCoffee);
-  server.get("/customers/:name", getCustomerByName);
+  server.get("/customers/:id", getCustomerById);
   server.post("/customers", postCustomers);
 
   async function getCustomers(req, res, next) {
@@ -13,12 +13,15 @@ function setCustomerRoutes(server) {
     next();
   }
 
-  async function getCustomerByName(req, res, next) {
-    const { name } = req.params;
-    console.log(name);
-    const data = await Customer.find({ name });
-    res.send(data);
-    next();
+  async function getCustomerById(req, res, next) {
+    const { id } = req.params;
+    try {
+      const data = await Customer.findById(id);
+      res.send(data);
+      next();
+    } catch (error) {
+      res.send(new errors.ResourceNotFoundError(`No customer with id: ${id}`));
+    }
   }
 
   async function postCustomers(req, res, next) {

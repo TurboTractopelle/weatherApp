@@ -11,8 +11,8 @@ GET {{host}}/customers
 GET {{host}}/customers/coffee
 
 
-### get customer by name
-GET {{host}}/customers/a
+### get customer by id
+GET {{host}}/customers/5d6b8c948cbc1f2c30467689
 
 
 ### post customer with name a
