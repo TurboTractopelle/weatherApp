@@ -1,6 +1,7 @@
 const restify = require("restify");
 const villeRoutes = require("./controller/villeRoutes");
 const customerRoutes = require("./controller/customerRoutes");
+const userRoutes = require("./controller/userRoutes");
 
 /**
  * @param  {String} name="weather"
@@ -18,6 +19,7 @@ function setUpServer(name = "weather") {
 
   villeRoutes(server);
   customerRoutes(server);
+  userRoutes(server);
 
   return server;
 }
