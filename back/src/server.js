@@ -9,26 +9,26 @@ const JWT_SECRET = require("../config").JWT_SECRET;
  * @param  {String} name="weather"
  */
 function setUpServer(name = "weather") {
-  const server = restify.createServer({ name });
+	const server = restify.createServer({ name });
 
-  server.pre(restify.plugins.pre.dedupeSlashes());
-  server.pre(restify.plugins.pre.sanitizePath());
-  server.pre(restify.plugins.pre.strictQueryParams());
-  server.pre(restify.plugins.pre.userAgentConnection());
+	server.pre(restify.plugins.pre.dedupeSlashes());
+	server.pre(restify.plugins.pre.sanitizePath());
+	server.pre(restify.plugins.pre.strictQueryParams());
+	server.pre(restify.plugins.pre.userAgentConnection());
 
-  server.use(restify.plugins.queryParser({ mapParams: false }));
-  server.use(restify.plugins.jsonBodyParser());
+	server.use(restify.plugins.queryParser({ mapParams: false }));
+	server.use(restify.plugins.jsonBodyParser());
 
-  server.use(
+	/*server.use(
     // @ts-ignore
     rjwt({ secret: JWT_SECRET }).unless({ path: ["/auth", "/register"] })
-  );
+  );*/
 
-  villeRoutes(server);
-  customerRoutes(server);
-  userRoutes(server);
+	villeRoutes(server);
+	customerRoutes(server);
+	userRoutes(server);
 
-  return server;
+	return server;
 }
 
 module.exports = setUpServer;
