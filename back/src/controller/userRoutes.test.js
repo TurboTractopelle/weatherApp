@@ -16,12 +16,19 @@ describe("userRoutes", () => {
 					.expect(400);
 			});
 			it("error when bad header", () => {
-				return request(server)
+				let token;
+
+				request(server)
 					.post("/register")
 					.send({ email: "a@a.fr", password: "a" })
 					.set("Content-Type", "application/json")
 					.expect(200)
-					.then(res => expect(res.body.password.length > 5).toBeTruthy());
+					.then(res => {
+						token = res.body.password;
+						return expect(res.body.password.length > 5).toBeTruthy();
+					});
+
+				console.log(token);
 			});
 		});
 	});
