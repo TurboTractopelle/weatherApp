@@ -25,8 +25,14 @@ Content-Type: application/json
 
 {"name": "a", "email": "a@a.fr"}
 
+### updates customer, name
+PUT  {{host}}/customers/5d7771bd97661c1e480547b3
+Content-Type: application/json
+
+{"name": "john"}
+
 ### delete customer by id
-DELETE {{host}}/customers/5d77695977e5902aa8a6a912
+DELETE {{host}}/customers/5d77719497661c1e480547b2
 
 
 

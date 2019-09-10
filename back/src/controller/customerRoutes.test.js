@@ -52,4 +52,21 @@ describe("customerRoutes", () => {
 			.del(`/customers/${userId}`)
 			.expect(204);
 	});
+
+	it("update user", async () => {
+		await Customer.create({ name: "a", email: "a@a.fr" });
+
+		// get id
+		const userId = await request(server)
+			.get("/customers")
+			.then(res => res.body[0]._id);
+
+		return request(server)
+			.put(`/customers/${userId}`)
+			.send({ name: "john" })
+			.then(res => {
+				console.log(res.body);
+				return expect(res.body.name).toBe("john");
+			});
+	});
 });
