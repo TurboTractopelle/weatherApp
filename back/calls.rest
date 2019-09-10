@@ -19,11 +19,14 @@ GET {{host}}/customers/coffee
 ### get customer by id
 GET {{host}}/customers/5d6b8c948cbc1f2c30467689
 
-### post customer with name a
+### post customer, name and email
 POST {{host}}/customers
 Content-Type: application/json
 
 {"name": "a", "email": "a@a.fr"}
+
+### delete customer by id
+DELETE {{host}}/customers/5d77695977e5902aa8a6a912
 
 
 

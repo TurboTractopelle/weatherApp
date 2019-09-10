@@ -1,3 +1,4 @@
+require("dotenv").config();
 const register = require("./user/register");
 const authenticate = require("./user/auth");
 const jwt = require("jsonwebtoken");
