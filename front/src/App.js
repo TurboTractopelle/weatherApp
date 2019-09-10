@@ -1,5 +1,8 @@
 import React from "react";
 import "./App.css";
+import chalk from "chalk";
+
+console.log(chalk`{cyan CRA loading}`);
 
 function App() {
 	return (
