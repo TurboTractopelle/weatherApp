@@ -12,6 +12,8 @@ class Days extends Component {
   };
 
   render() {
+    const loading = this.props.loading && <p>...</p>;
+
     return (
       <div>
         Days: {this.props.dayNumber}
@@ -24,6 +26,7 @@ class Days extends Component {
         </div>
         <div>
           <h3>async</h3>
+          {loading}
           <button onClick={this.addValueAsync(1)}>+1</button>
           <button onClick={this.addValueAsync(2)}>+2</button>
           <button onClick={this.addValueAsync(-1)}>-1</button>
@@ -34,11 +37,10 @@ class Days extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    dayNumber: state.daysReducer.value
-  };
-};
+const mapStateToProps = state => ({
+  dayNumber: state.daysReducer.value,
+  loading: state.daysReducer.loading
+});
 
 const mapDispatchToProps = dispatch => {
   return {
