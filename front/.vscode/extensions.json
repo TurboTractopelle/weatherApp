@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    // advanced-new-file
+    "patbenatar.advanced-new-file",
+    // VSCode Great Icons
+    "emmanuelbeziat.vscode-great-icons",
+    // REST Client
+    "humao.rest-client",
+    // VSCode Great Icons
+    "emmanuelbeziat.vscode-great-icons",
+    //Git Graph
+    "mhutchie.git-graph"
+  ]
+}

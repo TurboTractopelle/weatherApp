@@ -3,36 +3,51 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions/days";
 
 class Days extends Component {
-	addValue = value => e => {
-		this.props.storeAdd(value);
-	};
+  addValue = value => () => {
+    this.props.storeAdd(value);
+  };
 
-	render() {
-		return (
-			<div>
-				Days: {this.props.dayNumber}
-				<button onClick={this.addValue(1)}>+1</button>
-				<button onClick={this.addValue(2)}>+2</button>
-				<button onClick={this.addValue(-1)}>-1</button>
-				<button onClick={this.addValue(-2)}>-2</button>
-			</div>
-		);
-	}
+  addValueAsync = value => () => {
+    this.props.storeAddAsync(value);
+  };
+
+  render() {
+    return (
+      <div>
+        Days: {this.props.dayNumber}
+        <div>
+          <h3>sync</h3>
+          <button onClick={this.addValue(1)}>+1</button>
+          <button onClick={this.addValue(2)}>+2</button>
+          <button onClick={this.addValue(-1)}>-1</button>
+          <button onClick={this.addValue(-2)}>-2</button>
+        </div>
+        <div>
+          <h3>async</h3>
+          <button onClick={this.addValueAsync(1)}>+1</button>
+          <button onClick={this.addValueAsync(2)}>+2</button>
+          <button onClick={this.addValueAsync(-1)}>-1</button>
+          <button onClick={this.addValueAsync(-2)}>-2</button>
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-	return {
-		dayNumber: state.daysReducer.value
-	};
+  return {
+    dayNumber: state.daysReducer.value
+  };
 };
 
 const mapDispatchToProps = dispatch => {
-	return {
-		storeAdd: value => dispatch(actions.addDay(value))
-	};
+  return {
+    storeAdd: value => dispatch(actions.addDay(value)),
+    storeAddAsync: value => dispatch(actions.addDayAsync(value))
+  };
 };
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Days);
