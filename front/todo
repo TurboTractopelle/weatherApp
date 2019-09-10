@@ -1,2 +1,4 @@
-☐ setup redux
-☐ use back for CRUD
+✔ setup redux @done(19-09-10 16:36)
+☐ use backend for CRUD
+☐ setup redux async actions
+☐ setup auth
