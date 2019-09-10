@@ -1,23 +1,59 @@
 {
-	"name": "back",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"start": "node src/app.js",
-		"test": "jest"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"chalk": "^2.4.2",
-		"eslint": "^6.2.2",
-		"jest": "^24.9.0",
-		"nodemon": "^1.19.1"
-	},
-	"dependencies": {
-		"mongoose": "^5.6.11",
-		"restify": "^8.4.0"
-	}
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
+    "test:watch": "npm test -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "chalk": "^2.4.2",
+    "cross-env": "^5.2.1",
+    "eslint": "^6.2.2",
+    "jest": "^24.9.0",
+    "mongodb-memory-server": "^5.2.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.11",
+    "mongoose-timestamp": "^0.6.0",
+    "restify": "^8.4.0",
+    "restify-errors": "^8.0.1",
+    "restify-jwt-community": "^1.1.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageReporters": [
+      "html",
+      "lcov",
+      "text"
+    ],
+    "notify": true,
+    "testEnvironment": "./jest/mongo-memory-environment",
+    "transform": {}
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "always",
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ],
+    "no-irregular-whitespace": 0
+  }
 }

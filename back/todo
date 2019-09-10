@@ -1,0 +1,6 @@
+    ✔ Setup CRUD @done(19-09-10 12:56)
+    // https://www.restapitutorial.com/lessons/httpmethods.html
+
+    ☐ Setup Aggregate
+    ☐ Setup authentication
+    ✔ When creating user check if email is not used @done(19-09-10 13:09)

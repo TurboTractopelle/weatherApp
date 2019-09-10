@@ -11,7 +11,7 @@
 Launch the mongoDB database using a docker container.
 Docker needs to be installed first. From any directory launch:
 
-    docker run mongo --name mongo -p 27017:27017
+    docker run -d --name mongo -p 27017:27017 mongo
 
 ## Back-end
 

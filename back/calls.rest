@@ -1,0 +1,61 @@
+@host = http://localhost:4000
+
+
+// RETURNS SOMETHING
+
+### get /test, receive "test"
+GET {{host}}/test
+
+
+
+// CUSTOMERS 
+
+### get customers
+GET {{host}}/customers
+
+### get customers coffee
+GET {{host}}/customers/coffee
+
+### get customer by id
+GET {{host}}/customers/5d6b8c948cbc1f2c30467689
+
+### post customer, name and email
+POST {{host}}/customers
+Content-Type: application/json
+
+{"name": "a", "email": "a@a.fr"}
+
+### updates customer, name
+PUT  {{host}}/customers/5d7771bd97661c1e480547b3
+Content-Type: application/json
+
+{"name": "john"}
+
+### delete customer by id
+DELETE {{host}}/customers/5d77719497661c1e480547b2
+
+
+// USERS 
+
+### register
+POST {{host}}/register
+Content-Type: application/json
+
+{"email": "a@a.fr", "password":"a"}
+
+
+
+// VILLES
+
+### get villes
+GET {{host}}/villes
+
+### post ville
+POST {{host}}/villes
+Content-Type: application/json
+
+< ./fixtures/ville1.json
+
+### delete ville by name 
+
+DELETE {{host}}/villes?name=Paris
