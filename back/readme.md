@@ -5,7 +5,14 @@ CRUD on customer
 
 ## Tests
 
+### Jest
+
 Uses in memory MongoDb
+
+### Manual request
+
+- Launch the mongoDb database
+- Test the API using the calls.rest file
 
 ## Dev
 
