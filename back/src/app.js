@@ -17,6 +17,6 @@ connection.on("open", () => {
 
 	server.listen(PORT, () => {
 		// @ts-ignore
-		console.log(chalk`{cyan Listening on port ${URL + PORT}}`);
+		console.log(chalk`{cyan Listening on port ${URL}:${PORT}}`);
 	});
 });

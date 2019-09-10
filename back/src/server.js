@@ -2,8 +2,8 @@ const restify = require("restify");
 const villeRoutes = require("./controller/villeRoutes");
 const customerRoutes = require("./controller/customerRoutes");
 const userRoutes = require("./controller/userRoutes");
-const rjwt = require("restify-jwt-community");
-const JWT_SECRET = process.env.JWT_SECRET;
+//const rjwt = require("restify-jwt-community");
+//const JWT_SECRET = process.env.JWT_SECRET;
 
 /**
  * @param  {String} name="weather"
