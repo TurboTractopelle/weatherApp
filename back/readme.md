@@ -29,3 +29,17 @@ Uses in memory MongoDb
 
 /customers
 {"name": "a", "email": "a@a.fr"}
+
+## User API
+
+### /register
+
+Require email and password
+create an entry in the database
+
+will then need to auth to get the token
+
+### /auth
+
+Receive a token if sucessful authentication :
+in db by email + correct password

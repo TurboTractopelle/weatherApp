@@ -4,7 +4,6 @@ const bcrypt = require("bcryptjs");
 const util = require("util");
 
 async function register(req, res, next) {
-	console.log("req.body", req.body);
 	if (req.body === undefined) {
 		res.send(new errors.BadDigestError("email and password!"));
 		return next();
@@ -14,15 +13,28 @@ async function register(req, res, next) {
 		res.send(new errors.BadDigestError("email!"));
 		return next();
 	}
-	const { email, password } = req.body;
 
-	console.log(req.headers);
+	if (req.body.password === undefined) {
+		res.send(new errors.BadDigestError("password!"));
+		return next();
+	}
+
+	const { email, password } = req.body;
 
 	if (!req.is("application/json")) {
 		res.send(new errors.InvalidContentError("this is not json"));
 		return next();
 	}
 
+	// check if email is not currently used
+	console.log("check email");
+	const validUser = await User.find({ email });
+	if (validUser.length !== 0) {
+		res.send(new errors.BadDigestError(`Can't create user, ${email} is already used`));
+		return next();
+	}
+
+	// generate password
 	const genSaltProm = util.promisify(bcrypt.genSalt);
 	const hashProm = util.promisify(bcrypt.hash);
 

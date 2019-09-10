@@ -35,6 +35,15 @@ Content-Type: application/json
 DELETE {{host}}/customers/5d77719497661c1e480547b2
 
 
+// USERS 
+
+### register
+POST {{host}}/register
+Content-Type: application/json
+
+{"email": "a@a.fr", "password":"a"}
+
+
 
 // VILLES
 

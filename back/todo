@@ -1,5 +1,6 @@
-    ☐ Setup CRUD
+    ✔ Setup CRUD @done(19-09-10 12:56)
     // https://www.restapitutorial.com/lessons/httpmethods.html
+
     ☐ Setup Aggregate
-    ☐ Setup memserver for testing
     ☐ Setup authentication
+    ☐ When creating user check if email is not used
