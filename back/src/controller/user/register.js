@@ -27,7 +27,6 @@ async function register(req, res, next) {
 	}
 
 	// check if email is not currently used
-	console.log("check email");
 	const validUser = await User.find({ email });
 	if (validUser.length !== 0) {
 		res.send(new errors.BadDigestError(`Can't create user, ${email} is already used`));

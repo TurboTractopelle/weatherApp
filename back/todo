@@ -3,4 +3,4 @@
 
     ☐ Setup Aggregate
     ☐ Setup authentication
-    ☐ When creating user check if email is not used
+    ✔ When creating user check if email is not used @done(19-09-10 13:09)
