@@ -1,3 +1,4 @@
+require("dotenv").config();
 const chalk = require("chalk");
 const setUpServer = require("./server");
 const PORT = process.env.PORT;
