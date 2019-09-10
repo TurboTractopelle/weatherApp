@@ -1,7 +1,7 @@
 const register = require("./user/register");
 const authenticate = require("./user/auth");
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = require("../../config").JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET;
 const rjwt = require("restify-jwt-community");
 
 function setupUserRoutes(server) {

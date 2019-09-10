@@ -29,6 +29,8 @@ describe("userRoutes", () => {
 					});
 
 				console.log(token);
+
+				request(server).post("/auth");
 			});
 		});
 	});
